@@ -31,4 +31,9 @@ public class TaskController {
 
 
     }
+
+    @PostMapping("")
+    public void createTask(TaskDto taskDto) {
+
+    }
 }
