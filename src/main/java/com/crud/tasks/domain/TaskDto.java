@@ -1,4 +1,4 @@
-package com.crud.task.domain;
+package com.crud.tasks.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
