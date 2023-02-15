@@ -10,9 +10,11 @@ import java.util.Optional;
 @Repository
 public interface TaskRepository extends CrudRepository<Task, Long> {
 
-    @Override
     List<Task> findAll();
 
-    @Override
-    Optional<Task> findById(Long id);
+    Task save(Task task);
+
+    Optional<Task> findById(Long taskId);
+
+    void deleteTaskById(Long taskId);
 }
