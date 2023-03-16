@@ -21,23 +21,27 @@ public class TaskController {
     private final TaskMapper taskMapper;
 
     @GetMapping
+    @CrossOrigin("*")
     public ResponseEntity<List<TaskDto>> getTasks() {
         List<Task> tasks= service.getAllTask();
         return ResponseEntity.ok(taskMapper.mapToTaskDtoList(tasks));
     }
 
     @GetMapping(value= "{taskId}")
+    @CrossOrigin("*")
     public ResponseEntity<TaskDto> getTask(@PathVariable Long taskId) throws TaskNotFoundException {
         return ResponseEntity.ok(taskMapper.mapToTaskDto(service.getTask(taskId)));
     }
 
     @DeleteMapping(value = "{taskId}")
+    @CrossOrigin("*")
     public ResponseEntity<Void> deleteTask(@PathVariable Long taskId) {
         service.deleteTask(taskId);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping
+    @CrossOrigin("*")
     public ResponseEntity<TaskDto> updateTask(@RequestBody TaskDto taskDto) {
         Task task= taskMapper.mapToTask(taskDto);
         Task savedTask= service.saveTask(task);
@@ -45,6 +49,7 @@ public class TaskController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin("*")
     public ResponseEntity<Void> createTask(@RequestBody TaskDto taskDto) {
         Task task= taskMapper.mapToTask(taskDto);
         service.saveTask(task);
