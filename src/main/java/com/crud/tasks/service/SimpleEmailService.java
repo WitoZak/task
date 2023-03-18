@@ -8,6 +8,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -31,7 +33,9 @@ public class SimpleEmailService {
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
-        if (mail.getToCc() != null && !mail.getToCc().isEmpty()) {
+        Optional<String> mailToCc = Optional.ofNullable(mail.getToCc());
+        if (mailToCc.isPresent()){
+            mailToCc.get();
             mailMessage.setCc(mail.getToCc());
         }
         return mailMessage;

@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DbService {
 
-        private final TaskRepository repository;
+    private final TaskRepository repository;
 
     public List<Task> getAllTask() {
         return repository.findAll();

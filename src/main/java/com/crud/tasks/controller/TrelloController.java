@@ -18,11 +18,13 @@ public class TrelloController {
 
     private final TrelloService trelloService;
 
+    @CrossOrigin(origins = "*")
     @GetMapping("boards")
     public ResponseEntity<List<TrelloBoardDto>> getTrelloBoards() {
         return ResponseEntity.ok(trelloService.fetchTrelloBoards());
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("cards")
     public ResponseEntity <CreatedTrelloCard> createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
         return ResponseEntity.ok(trelloService.createTrelloCard(trelloCardDto));
