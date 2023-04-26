@@ -1,4 +1,4 @@
-package com.crud.tasks.trello.client;
+package com.crud.tasks.mapper;
 
 import com.crud.tasks.domain.*;
 import com.crud.tasks.mapper.TrelloMapper;
@@ -25,7 +25,7 @@ class TrelloMapperTest {
 
         //Given
         List<TrelloListDto> listDtos = new ArrayList<>();
-        listDtos.add(new TrelloListDto("1", "Test list", false));
+        listDtos.add(new TrelloListDto("1", "Test board", false));
 
         List<TrelloBoardDto> boardDtos = new ArrayList<>();
         boardDtos.add(new TrelloBoardDto("1", "Test board", listDtos));
@@ -36,7 +36,7 @@ class TrelloMapperTest {
         //Then
         assertEquals(1, boardDtos.size());
         assertEquals("1", boardDtos.get(0).getId());
-        assertEquals("Test list", boardDtos.get(0).getName());
+        assertEquals("Test board", boardDtos.get(0).getName());
         assertEquals(1, boardDtos.get(0).getLists().size());
         assertEquals("1", boardDtos.get(0).getLists().get(0).getId());
         assertEquals("Test board", boardDtos.get(0).getLists().get(0).getName());
