@@ -49,10 +49,8 @@ public class TaskController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    @CrossOrigin("*")
-    public ResponseEntity<Void> createTask(@RequestBody TaskDto taskDto) {
+    public TaskDto createTask(@RequestBody TaskDto taskDto) {
         Task task= taskMapper.mapToTask(taskDto);
-        service.saveTask(task);
-        return ResponseEntity.ok().build();
+        return taskMapper.mapToTaskDto(service.saveTask(task));
     }
 }
