@@ -15,6 +15,8 @@
 * JavaScript
 * Spring Boot
 * REST API
+* MySQL
+* Mailtrap
 * Lombok
 * Git
 * Gradle
