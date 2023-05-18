@@ -11,7 +11,7 @@
 * application tests
 
 ## Technologies:
-* Java8
+* Java11
 * JavaScript
 * Spring Boot
 * REST API
