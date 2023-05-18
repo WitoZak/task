@@ -30,5 +30,13 @@ public class EmailScheduler {
                         null
                 )
         );
+        simpleEmailService.sendInfo(
+                new Mail(
+                        adminConfig.getAdminMail(),
+                        SUBJECT,
+                        message,
+                        null
+                )
+        );
     }
 }
